@@ -3,7 +3,7 @@ from TicTacToe import TicTacToe
 from MCTS import MCTS
 import json
 import numpy as np
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 args = {
     'C': 1.41,
