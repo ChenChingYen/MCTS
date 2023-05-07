@@ -3,6 +3,7 @@ from TicTacToe import TicTacToe
 from MCTS import MCTS
 import json
 import numpy as np
+from flask_cors import CORS
 
 args = {
     'C': 1.41,
@@ -10,8 +11,10 @@ args = {
 }
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/mcts', methods=['GET'])
+@cross_origin()
 def predict():
     current_state = request.args.get('state')
     current_player = request.args.get('player')
